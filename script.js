@@ -1,6 +1,6 @@
 const containerDivs = document.querySelector(".containerDivs");
 const range = document.querySelector("#inputRange");
-const button = document.querySelector(".button");
+const buttonSize = document.querySelector(".button");
 const gridSize = document.querySelector("#grid-size");
 
 let defaultSize = 16;
@@ -23,9 +23,18 @@ const createDivs = (size) => {
 }
 createDivs(defaultSize);
 const changeSize = () =>{
-  defaultSize = range.value;
-  const sizeInfo = document.createElement("p");
+  
   gridSize.textContent = `Grid size: ${range.value}x${range.value}`
-  createDivs(defaultSize);
+  createDivs(range.value);
 }
-button.addEventListener("click",changeSize);
+const popWindowSize  =() =>{
+  let size = parseInt(prompt("Please enter a number bettwen 10 - 100: "));
+  if(size<10 || size>100){
+    alert("Enter a valid value!");
+    return popWindowSize();
+  }
+  gridSize.textContent = `Grid size: ${size}x${size}`
+  createDivs(size);
+}
+buttonSize.addEventListener("click",popWindowSize)
+range.addEventListener("input",changeSize);
