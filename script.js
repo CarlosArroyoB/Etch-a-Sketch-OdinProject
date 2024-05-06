@@ -1,13 +1,31 @@
 const containerDivs = document.querySelector(".containerDivs");
-const div = document.createElement("div");
+const range = document.querySelector("#inputRange");
+const button = document.querySelector(".button");
+const gridSize = document.querySelector("#grid-size");
 
-const createDivs = () => {
-    for(let i = 1; i<=16;i++){
-        let row = "";
-        for(let j = 1; j<=16;j++){
-            row += "*";
-        }
-        console.log(row)
-    }
+let defaultSize = 16;
+const createDivs = (size) => {
+    let proportions = 600/size;
+    let totalSquares = size*size;
+  containerDivs.innerHTML= "";
+  for (let i = 1; i <= totalSquares; i++) {
+    const square = document.createElement("div");
+    square.style.width = `${proportions}px`;
+    square.style.height = `${proportions}px`;
+    square.style.border = "0.5px solid #000";
+    square.classList.add("square");
+    square.addEventListener("mouseover", (e) => {
+      square.style.backgroundColor = "black";
+    });
+    containerDivs.appendChild(square);
+  } 
+  containerDivs.style.gridTemplateColumns = `repeat(${range.value}, 1fr)`;
 }
-createDivs();
+createDivs(defaultSize);
+const changeSize = () =>{
+  defaultSize = range.value;
+  const sizeInfo = document.createElement("p");
+  gridSize.textContent = `Grid size: ${range.value}x${range.value}`
+  createDivs(defaultSize);
+}
+button.addEventListener("click",changeSize);

@@ -1,3 +1,52 @@
-div{
+* {
+    padding: 0;
+    margin: 0;
     
+  }
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #bccddd;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
+
+.containerDivs {
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+#changeSize{
+  display: flex;
+  flex-direction: column;
+  margin-right: 2em;
+  margin-bottom: 12em;
+}
+.button{
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.button1{
+  display: flex;
+  justify-content: center;
+  margin-top: 8em;
+}
+.button2{
+  display: flex;
+  justify-content: center;
+  margin-top: 8em;
+}
+.square{
+  box-sizing: border-box;
+}
+.square:hover{
+    background-color: red;
+}
+
