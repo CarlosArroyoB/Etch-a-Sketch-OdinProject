@@ -26,22 +26,42 @@ body{
   display: flex;
   flex-direction: column;
   margin-right: 2em;
-  margin-bottom: 12em;
+  margin-bottom: 3em;
 }
 .button{
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0d68c8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 3em;
 }
 .button1{
-  display: flex;
-  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0d68c8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 8em;
 }
 .button2{
-  display: flex;
-  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0d68c8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 8em;
+}
+
+/* Estilos para el botón cuando tiene la clase "pressed" */
+.button2.pressed {
+  background-color: #0d3179;
 }
 .square{
   box-sizing: border-box;
