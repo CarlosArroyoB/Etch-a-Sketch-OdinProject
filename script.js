@@ -3,10 +3,12 @@ const range = document.querySelector("#inputRange");
 const buttonSize = document.querySelector(".button");
 const gridSize = document.querySelector("#grid-size");
 const buttonErrase = document.querySelector(".button2");
+const buttonRainbow = document.querySelector(".button1");
+
 
 let defaultSize = 16;
 let doClick = false;
-
+let clickR = false;
 const createDivs = (size) => {
     let proportions = 600/size;
     let totalSquares = size*size;
@@ -18,9 +20,11 @@ const createDivs = (size) => {
     square.style.border = "0.5px solid #000";
     square.classList.add("square");
     square.addEventListener("mouseover", () => {
-      if(doClick){
+      if(doClick && !clickR){
         square.style.backgroundColor = "white";
-      } else{
+      } else if(!doClick && clickR){
+        generarNuevoColor(square);
+      } else if(!doClick && !clickR){
         square.style.backgroundColor = "black";
       }
       
@@ -29,6 +33,18 @@ const createDivs = (size) => {
   } 
   containerDivs.style.gridTemplateColumns = `repeat(${range.value}, 1fr)`;
   return range.value;
+}
+function generarNuevoColor(square){
+	var simbolos, color;
+	simbolos = "0123456789ABCDEF";
+	color = "#";
+
+	for(var i = 0; i < 6; i++){
+		color = color + simbolos[Math.floor(Math.random() * 16)];
+	}
+
+	return square.style.background = color;
+	
 }
 createDivs(defaultSize);
 const changeSize = () =>{
@@ -52,4 +68,9 @@ buttonErrase.addEventListener("click",() =>{
   doClick = !doClick;
   console.log(doClick);
   buttonErrase.classList.toggle('pressed');
+});
+buttonRainbow.addEventListener("click",() =>{
+  clickR = !clickR;
+  console.log(clickR);
+  buttonRainbow.classList.toggle('pressed');
 });

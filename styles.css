@@ -60,13 +60,14 @@ body{
 }
 
 /* Estilos para el botón cuando tiene la clase "pressed" */
+.button1.pressed {
+  background-color: #0d3179;
+}
 .button2.pressed {
   background-color: #0d3179;
 }
 .square{
   box-sizing: border-box;
 }
-.square:hover{
-    background-color: red;
-}
+
 
